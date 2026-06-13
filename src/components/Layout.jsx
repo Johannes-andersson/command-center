@@ -71,7 +71,10 @@ export default function Layout() {
       </aside>
 
       {/* Mobile top bar */}
-      <header className="md:hidden flex items-center justify-between px-4 py-3 border-b border-border bg-bg sticky top-0 z-10">
+      <header
+        className="md:hidden flex items-center justify-between px-4 py-3 border-b border-border bg-bg sticky top-0 z-10"
+        style={{ paddingTop: 'calc(env(safe-area-inset-top) + 0.75rem)' }}
+      >
         <div className="flex items-center gap-2">
           <Terminal className="w-5 h-5 text-accent" />
           <span className="font-mono text-sm tracking-tight">
