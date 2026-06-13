@@ -144,7 +144,7 @@ export default function Sources() {
                     rel="noopener noreferrer"
                     className="text-xs text-muted hover:text-accent inline-flex items-center gap-1 truncate mb-2"
                   >
-                    {new URL(s.url).hostname.replace('www.', '')}
+                    {safeHostname(s.url)}
                     <ExternalLink className="w-3 h-3 flex-shrink-0" />
                   </a>
                 )}
@@ -176,6 +176,14 @@ export default function Sources() {
       />
     </>
   )
+}
+
+function safeHostname(url) {
+  try {
+    return new URL(url).hostname.replace('www.', '')
+  } catch {
+    return url
+  }
 }
 
 function SourceModal({ open, onClose, onSave, editing }) {
